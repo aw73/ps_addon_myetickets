@@ -24,11 +24,7 @@
 *  International Registered Trademark & Property of PrestaShop SA
 */
 
-if (!defined('_PS_VERSION_')) {
-    exit;
-}
-
-class testmodule extends Module
+class testModule extends Module
 {
     public function __construct()
     {

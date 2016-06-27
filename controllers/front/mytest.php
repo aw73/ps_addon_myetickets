@@ -24,6 +24,6 @@
 *  International Registered Trademark & Property of PrestaShop SA
 */
 
-class testmoduleMytestModuleFrontController extends ModuleFrontController
+class testModuleMytestModuleFrontController extends ModuleFrontController
 {
 }
