@@ -1,5 +1,5 @@
 <div class="tab-pane" id="test">
-  <h4 class="visible-print">{l s='Test'} <span class="badge">1</span></h4>
+  <h4 class="visible-print">{l s='Test' mod='testmodule'} <span class="badge">1</span></h4>
 
   {$link->getModuleLink('testmodule', 'test', ['id'=>12])}
 
@@ -8,16 +8,16 @@
   		<thead>
   			<tr>
   				<th>
-  					<span class="title_box ">{l s='Reference'}</span>
+  					<span class="title_box ">{l s='Reference' mod='testmodule'}</span>
   				</th>
   				<th>
-  					<span class="title_box ">{l s='Test'}</span>
+  					<span class="title_box ">{l s='Test' mod='testmodule'}</span>
   				</th>
   				<th>
-  					<span class="title_box ">{l s='Quantity'}</span>
+  					<span class="title_box ">{l s='Quantity' mod='testmodule'}</span>
   				</th>
   				<th>
-  					<span class="title_box ">{l s='Checked'}</span>
+  					<span class="title_box ">{l s='Checked' mod='testmodule'}</span>
   				</th>
   				<th></th>
   			</tr>
