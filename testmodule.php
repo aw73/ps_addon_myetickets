@@ -1,6 +1,6 @@
 <?php
 /**
-* 2007-2015 PrestaShop
+* 2007-2015 PrestaShop.
 *
 * NOTICE OF LICENSE
 *
@@ -23,11 +23,11 @@
 *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 */
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
 
-if (!defined('_PS_VERSION_'))
-	exit;
-
-class testModule extends Module
+class testmodule extends Module
 {
     public function __construct()
     {
@@ -46,38 +46,40 @@ class testModule extends Module
 
     public function install()
     {
-			// Install Tabs
-			$tab = new Tab();
+        // Install Tabs
+            $tab = new Tab();
 
-			foreach (Language::getLanguages() as $language) {
-        $tab->name[$language['id_lang']] = 'My Module';
-    	}
+        foreach (Language::getLanguages() as $language) {
+            $tab->name[$language['id_lang']] = 'My Module';
+        }
 
-	    $tab->class_name = 'AdminTestmodule';
-	    $tab->module = $this->name;
+        $tab->class_name = 'AdminTestmodule';
+        $tab->module = $this->name;
 
-			$idParent = (int)Tab::getIdFromClassName('AdminParentCustomer');
-			$tab->id_parent = $idParent;
-			$tab->position = Tab::getNbTabs($idParent);
+        $idParent = (int) Tab::getIdFromClassName('AdminParentCustomer');
+        $tab->id_parent = $idParent;
+        $tab->position = Tab::getNbTabs($idParent);
 
-			if(!$tab->save())
-			    return false;
+        if (!$tab->save()) {
+            return false;
+        }
 
-			Configuration::updateValue('MYMODULE_ADMIN_TAB', $tab->id);
+        Configuration::updateValue('MYMODULE_ADMIN_TAB', $tab->id);
 
-			return parent::install();
- 	  }
+        return parent::install();
+    }
 
     public function uninstall()
     {
-			$adminTabId = Configuration::get('MYMODULE_ADMIN_TAB');
+        $adminTabId = Configuration::get('MYMODULE_ADMIN_TAB');
 
-			if(Tab::existsInDatabase($adminTabId, Tab::$definition['table'])) {
-				$adminTab = new Tab($adminTabId);
-				if(!$adminTab->delete())
-						return false;
-			}
+        if (Tab::existsInDatabase($adminTabId, Tab::$definition['table'])) {
+            $adminTab = new Tab($adminTabId);
+            if (!$adminTab->delete()) {
+                return false;
+            }
+        }
+
         return Configuration::deleteByName('MYMODULE_ADMIN_TAB') && parent::uninstall();
     }
-
 }

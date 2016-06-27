@@ -1,6 +1,6 @@
 <?php
 /**
-* 2007-2015 PrestaShop
+* 2007-2015 PrestaShop.
 *
 * NOTICE OF LICENSE
 *
@@ -23,23 +23,22 @@
 *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 */
-
 class AdminTestmoduleController extends ModuleAdminController
 {
     public function __construct()
     {
-      parent::__construct();
+        parent::__construct();
     }
 
     public function initContent()
     {
-      parent::initContent();
+        parent::initContent();
     }
 
     public function display()
     {
-      parent::display();
-      return "<hr>YEAH !<hr>";
+        parent::display();
+
+        return '<hr>YEAH !<hr>';
     }
 }
-?>
